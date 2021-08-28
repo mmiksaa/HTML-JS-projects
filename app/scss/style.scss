@@ -491,8 +491,11 @@
   }
 
   &__item {
-    display: flex;
-    justify-content: center;
+
+    @include maxw($lr) {
+      display: flex;
+      justify-content: center;
+    }
     
     @include maxw($sm) {
       &:last-child {
