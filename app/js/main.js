@@ -13,4 +13,18 @@ $(function () {
     $('body').toggleClass('body--active');
   });
 
+  var swiper = new Swiper('.swiper-container', {
+    initialSlide: 1,
+    slideToShow: 3,
+    effect: 'coverflow',
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 50,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });
+
 });

@@ -518,6 +518,10 @@
 
   &__desc {
     margin-bottom: 105px;
+
+    @include maxw($exsm) {
+      margin-bottom: 40px;
+    }
   }
 
 
@@ -544,6 +548,20 @@
     }
   }
 
+  .swiper-pagination {
+    display: none;
+    bottom: -30px;
+
+    @include maxw($md) {
+      display: block;
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
   &__link {
     display: block;
     background-size: cover;
@@ -555,6 +573,10 @@
     opacity: 0.5;
     pointer-events: none;
     cursor: initial;
+
+    @include maxw($exsm) {
+      min-height: 360px;
+    }
 
     &::before {
       content: '';
@@ -576,6 +598,10 @@
     color: rgba(255, 255, 255, 0.7);
     position: relative;
     z-index: 1;
+
+    @include maxw($sm) {
+      padding: 25px 0 0 10px;
+    }
   }
 
   &__play {
