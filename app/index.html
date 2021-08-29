@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="images/favicon.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
   <title>Document</title>
 </head>
 
@@ -266,9 +267,75 @@
         <a class="btn btn--transparent learn__btn" href="#">Show All Classes</a>
       </div>
     </section>
+
+    <section class="webinar">
+      <div class="container">
+        <h2 class="title">Live Online Webinar</h2>
+        <span class="desc webinar__desc">You can stream Webinar live on our apps. Stay update on our Webinar, it’s
+          Free!</span>
+        <div class="swiper-container">
+          <ul class="webinar__slider swiper-wrapper">
+            <li class="webinar__item swiper-slide">
+              <a class="webinar__link" href="" style="background-image: url('images/content/webinar/1.jpg');">
+                <h5 class="webinar__top">How To Build Portofolio as A Designer</h5>
+                <span class="webinar__play">
+                  <span class="sr-only">play</span>
+                  <svg>
+                    <use xlink:href="images/sprite.svg#play"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+
+            <li class="webinar__item swiper-slide">
+              <a class="webinar__link" href="" style="background-image: url('images/content/webinar/1.jpg');">
+                <h5 class="webinar__top">How To Build Portofolio as A Designer</h5>
+                <span class="webinar__play">
+                  <span class="sr-only">play</span>
+                  <svg>
+                    <use xlink:href="images/sprite.svg#play"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+
+            <li class="webinar__item swiper-slide">
+              <a class="webinar__link" href="" style="background-image: url('images/content/webinar/1.jpg');">
+                <h5 class="webinar__top">How To Build Portofolio as A Designer</h5>
+                <span class="webinar__play">
+                  <span class="sr-only">play</span>
+                  <svg>
+                    <use xlink:href="images/sprite.svg#play"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="js/main.min.js"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script type="module">
+    var swiper = new Swiper('.swiper-container', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+    },
+    pagination: {
+    el: '.swiper-pagination',
+    },
+    });
+  </script>
 </body>
 
 </html>
