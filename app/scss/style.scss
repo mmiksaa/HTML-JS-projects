@@ -2,6 +2,7 @@
 @import 'vars';
 @import 'mixin';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 .header {
@@ -524,6 +525,25 @@
     max-width: 620px;
   }
 
+  .swiper-slide-active {
+    .webinar__link {
+      opacity: 1;
+      transition: 0.6s opacity;
+      cursor: pointer;
+      pointer-events: initial;
+      &:hover {
+        .webinar__play {
+          background-color: rgba(245, 68, 59, 0.5);
+          border-color: transparent;
+
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+
   &__link {
     display: block;
     background-size: cover;
@@ -532,17 +552,9 @@
     min-height: 425px;
     position: relative;
     border-radius: 23px;
-
-    &:hover {
-      .webinar__play {
-        background-color: rgba(245, 68, 59, 0.5);
-        border-color: transparent;
-        
-        svg {
-          fill: #fff;
-        }
-      }
-    }
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: initial;
 
     &::before {
       content: '';
