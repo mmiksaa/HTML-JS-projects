@@ -629,3 +629,23 @@
     }
   }
 }
+
+.price {
+  padding: 85px 0 115px;
+
+  &__desc {
+    margin-bottom: 85px;
+  }
+
+  &__list {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+
+    @include maxw($lr) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+  }
+}
