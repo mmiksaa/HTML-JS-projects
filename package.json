@@ -23,6 +23,7 @@
     "@fancyapps/fancybox": "^3.5.7",
     "gulp-file-include": "^2.3.0",
     "gulp-svg-sprite": "^1.5.0",
-    "swiper": "^7.0.1"
+    "swiper": "^7.0.1",
+    "wow.js": "^1.2.2"
   }
 }

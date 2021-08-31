@@ -173,7 +173,9 @@
 
   &__link {
     color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid transparent;
     transition: 0.5s color;
+    outline: transparent;
 
     @include maxw($md) {
       font-weight: 500;
@@ -182,6 +184,10 @@
       width: 100%;
       display: inline-block;
       color: #24294f;
+    }
+
+    &:focus {
+      border-color: #F5443B;
     }
 
     &:hover {
@@ -329,6 +335,7 @@
   &__title {
     font-size: 56px;
     margin-bottom: 25px;
+    text-align: left;
 
     @include maxw($sm) {
       font-size: 36px;
@@ -415,13 +422,13 @@
 
       @include maxw($sm) {
         top: -10px;
-        left: -45px;
+        left: -25px;
         width: 50px;
         height: 50px;
       }
 
       @include maxw($exsm) {
-        left: -35px;
+        left: -20px;
       }
     }
 
@@ -452,7 +459,7 @@
 
     @include maxw($sm) {
       max-width: 100%;
-      padding-left: 15px;
+      padding-left: 30px;
     }
   }
 
@@ -510,12 +517,21 @@
     display: block;
     margin: 50px auto 0;
     max-width: 200px;
+
+    @include maxw($md) {
+      max-width: 100%;
+      text-align: center;
+    }
   }
 }
 
 .webinar {
   padding: 110px 0 85px;
   overflow: hidden;
+
+  @include maxw($sm) {
+    padding: 40px 0;
+  }
 
   &__desc {
     margin-bottom: 105px;
@@ -836,6 +852,7 @@
     font-size: 20px;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 25px;
+    pointer-events: none;
 
     @include maxw($md) {
       margin-bottom: 0;
@@ -844,6 +861,7 @@
       width: 100%;
       text-align: center;
       position: relative;
+      pointer-events: initial;
       transition: 0.5s color, 0.5s border-color;
 
       &::before,
@@ -873,9 +891,9 @@
   }
 
   &__item-list {
-    display: none;
 
     @include maxw($md) {
+      display: none;
       text-align: center;
       width: 100%;
       margin-top: 10px;
@@ -885,10 +903,15 @@
   &__link {
     color: rgba(255, 255, 255, 0.7);
     transition: 0.2s color;
+    outline: transparent;
 
     @include maxw($md) {
       width: 100%;
       display: inline-block;
+    }
+
+    &:focus {
+      color: rgba(245, 68, 59, 0.4);
     }
 
     &:hover {

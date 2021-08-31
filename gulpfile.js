@@ -61,6 +61,7 @@ function  scripts() {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/swiper/swiper-bundle.min.js',
     'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
+    'node_modules/wow.js/dist/wow.js',
     'app/js/main.js'
   ])
   .pipe(concat('main.min.js'))

@@ -27,11 +27,19 @@ body {
 
 .btn {
   background-color: #F5443B;
+  border: 2px solid transparent;
   font-weight: 700;
   border-radius: 6px;
   color: #fff;
   padding: 12px 32px;
   transition: 0.6s background-color;
+  text-align: center;
+  outline: transparent;
+
+  &:focus {
+    background-color: rgba(245, 68, 59, 0.6);
+    border-color: #fff;
+  }
 
   &:hover {
     background-color: rgba(245, 68, 59, 0.6);
@@ -46,6 +54,23 @@ body {
     &:hover {
       color: #fff;
     }
+  }
+}
+
+.logo {
+  width: fit-content;
+  outline: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  &:focus {
+    border-color: #F5443B;
+  }
+
+  &__img {
+    width: 80px;
+    height: 40px;
+    object-fit: contain;
   }
 }
 
@@ -269,7 +294,13 @@ body {
     border-radius: 6px;
     background-color: #282B57;
     margin-left: -60px;
+    outline: transparent;
     transition: 0.5s background-color, 0.6s border-color;
+
+    &:focus {
+      border-color: #9a9ccb;
+      background-color: rgba(95, 86, 86, 0.3);
+    }
 
     &:hover {
       border-color: #9a9ccb;
@@ -306,7 +337,7 @@ body {
     }
 
     &:not(:nth-child(3n)) {
-      margin-right: 20px;
+      margin-right: 19px;
 
       @include maxw($sm) {
         margin-right: 0;
@@ -329,12 +360,16 @@ body {
 
   &__checkbox {
     &:checked {
-      width: 50px;
-      height: 80px;
 
       &+.filter-form__name {
         background-color: rgba(255, 255, 255, 0.4);
         color: black;
+      }
+    }
+
+    &:focus {
+      &+.filter-form__name {
+        color: #FB5048;
       }
     }
   }
@@ -396,7 +431,7 @@ body {
     transition: 0.6s transform;
     max-width: inherit;
     width: 100%;
-    max-height: inherit;
+    height: 170px;
     object-fit: cover;
   }
 
