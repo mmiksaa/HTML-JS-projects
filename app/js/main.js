@@ -27,4 +27,9 @@ $(function () {
     },
   });
 
+  $('.footer__title').on('click', function() {
+    $(this).next().slideToggle();
+    $(this).parent().toggleClass('footer__item--active')
+  });
+
 });
