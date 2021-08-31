@@ -320,12 +320,13 @@ body {
 
   &__list {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 
     @include maxw($sm) {
       display: grid;
       grid-gap: 5px;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 
@@ -334,14 +335,6 @@ body {
 
     @include maxw($sm) {
       margin-bottom: 0;
-    }
-
-    &:not(:nth-child(3n)) {
-      margin-right: 19px;
-
-      @include maxw($sm) {
-        margin-right: 0;
-      }
     }
   }
 
