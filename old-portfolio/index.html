@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>RLS PORTFOLIO</title>
+</head>
+
+<body id="app">
+
+  <div class="preload" id="preload">
+    <img class="preload__gif" src="images/load-gif.gif" alt="preload">
+    <span class="preload__desc">Подождите.. сайт загружается </span>
+  </div>
+
+
+  <header class="header myBox" id="top">
+    <div class="container">
+      <div class="header__top">
+        <a class="logo header__logo" href="#top">
+          <img src="images/logo.svg" alt="логотип">
+        </a>
+
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item"><a class="magic-hover header__link" href="#works">Портфолио</a></li>
+            <li class="header__item"><a class="magic-hover header__link" href="#about">Обо мне</a></li>
+            <li class="header__item"><a class="magic-hover header__link" href="#skills">Навыки</a></li>
+            <li class="header__item"><a class="magic-hover header__link" href="#connection">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <button class="burger">
+          <span class="burger__item"></span>
+          <span class="sr-only">открыть меню</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="container header__main">
+      <div class="header__img wow" data-wow-delay="0.3s">
+        <span class="sr-only">человек сидит за компьютером</span>
+      </div>
+      <div class="header__box wow" data-wow-delay="0.4s">
+        <h1 class="header__title"><span class="red">Frontend</span> Developer</h1>
+        <p class="header__text">
+          Фронтендеры создают лицо сайта — то, что вы видите, попав на любую страницу в интернете. А ещё организуют
+          логичную работу компонентов сайта: контента, кнопок, внутренних ссылок.
+        </p>
+
+        <div class="header__wrapp">
+          <span class="header__connection">
+            Email:
+            <a class="magic-hover header__connection-link" href="mailto:djabraildjj@gmail.com"
+              target="_blank">djabraildjj@gmail.com</a>
+          </span>
+
+          <span class="header__connection">
+            Telegram:
+            <a class="magic-hover header__connection-link" href="https://t.me/mmiksaa" target="_blank">mmiksaa</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="about-me padding-item" id="about">
+      <div class="container">
+        <h2 class="title about-me__title">Полезная информация обо мне</h2>
+        <div class="about-me__inner">
+          <div class="about-me__wrapp wow fadeInLeft" data-wow-delay="0.4s">
+            <p class="about-me__text">
+              Привет! Меня зовут <span class="red">Джабраил</span>. Пишу я сайты на HTML, CSS, JavaScript, соблюдаю
+              методологию BEM. Для
+              автоматизации верстки я использую сборщик пакетов GULP, препроцессоры Sass/Scss для продвинутой
+              стилизации. После
+              верстки я проверяю сайт на кроссбраузернось, адаптивность и валидность. Если он прошел все эти испытания я
+              отправляю его заказчику.
+            </p>
+            <a class="magic-hover about-me__link" href="#form">Задайте мне вопрос</a>
+          </div>
+
+          <div class="about-me__img-wrapp">
+            <div class="about-me__img wow fadeIn"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="works padding-item" id="works">
+      <div class="container">
+        <h2 class="title works__title">Примеры моих работ</h2>
+        <ul class="works__list">
+          <li class="works__item">
+            <div class="works__box wow fadeIn" data-wow-delay="0.3s">
+              <div class="works__wrapp">
+                <a class="works__link magic-hover" href="https://mmiksaa.github.io/Sinauw/dist/index.html"
+                  target="_blank">
+                  <img class="works__img" src="images/content/works/1.jpg" alt="Sinauw">
+                </a>
+
+                <svg>
+                  <use xlink:href="images/sprite.svg#cross"></use>
+                </svg>
+              </div>
+              <div class="works__text">
+                <h3 class="works__top">Sinauw</h3>
+                <p class="works__desc">
+                  Sinauw - это компания которая предоставляет бесплатные/платные курсы по web программированию
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="works__item">
+            <div class="works__box wow fadeIn" data-wow-delay="0.3s">
+              <div class="works__wrapp">
+                <a class="works__link magic-hover" href="https://mmiksaa.github.io/safe-house/dist/index.html"
+                  target="_blank">
+                  <img class="works__img" src="images/content/works/2.jpg" alt="Safe-house">
+                </a>
+
+                <svg>
+                  <use xlink:href="images/sprite.svg#cross"></use>
+                </svg>
+              </div>
+              <div class="works__text">
+                <h3 class="works__top">Safe-house</h3>
+                <p class="works__desc">
+                  Safe-house - компания, которая предоставляет строительство домов, ремонты в Гомеле
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="works__item">
+            <div class="works__box wow fadeIn" data-wow-delay="0.3s">
+              <div class="works__wrapp">
+                <a class="works__link magic-hover" href="https://mmiksaa.github.io/instabots/dist/index.html"
+                  target="_blank">
+                  <img class="works__img" src="images/content/works/3.jpg" alt="Instabots">
+                </a>
+
+                <svg>
+                  <use xlink:href="images/sprite.svg#cross"></use>
+                </svg>
+              </div>
+              <div class="works__text">
+                <h3 class="works__top">Instabots</h3>
+                <p class="works__desc">
+                  Вам нужен актив на аккаунте? Instabots вам предоставет множество классных услуг по накрутке аккаунта
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="works__item">
+            <div class="works__box wow fadeIn" data-wow-delay="0.3s">
+              <div class="works__wrapp">
+                <a class="works__link magic-hover" href="https://mmiksaa.github.io/nomoney/dist/index.html"
+                  target="_blank">
+                  <img class="works__img" src="images/content/works/4.jpg" alt="Nomoney">
+                </a>
+
+                <svg>
+                  <use xlink:href="images/sprite.svg#cross"></use>
+                </svg>
+              </div>
+              <div class="works__text">
+                <h3 class="works__top">Nomoney</h3>
+                <p class="works__desc">
+                  Платформа "нетмонет" позволяет Гостю удобно оставить отзыв и отблагодарить персонал банковской картой
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="works__item wow fadeInLeft">
+            <div class="works__box">
+              <div class="works__wrapp">
+                <a class="works__link magic-hover" href="https://mmiksaa.github.io/TOYSTREAM/dist/index.html"
+                  target="_blank">
+                  <img class="works__img" src="images/content/works/5.jpg" alt="Toystream">
+                </a>
+
+                <svg>
+                  <use xlink:href="images/sprite.svg#cross"></use>
+                </svg>
+              </div>
+              <div class="works__text">
+                <h3 class="works__top">Toystream</h3>
+                <p class="works__desc">
+                  Toy.Stream - это компания-разработчик и издатель мобильных игр. Они работают небольшими командами -
+                  это
+                  позволяет оставаться гибкими и быстро подстраиваться под потребности их игроков.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="works__item wow fadeInRight">
+            <div class="works__box">
+              <div class="works__wrapp">
+                <a class="works__link magic-hover" href="https://mmiksaa.github.io/crypto/dist/index.html"
+                  target="_blank">
+                  <img class="works__img" src="images/content/works/6.jpg" alt="Университет СИНЕРГИЯ">
+                </a>
+
+                <svg>
+                  <use xlink:href="images/sprite.svg#cross"></use>
+                </svg>
+              </div>
+              <div class="works__text">
+                <h3 class="works__top">Университет СИНЕРГИЯ</h3>
+                <p class="works__desc">
+                  Университет СИНЕРГИЯ предоставляет курсы по вкладу в криптовалюту
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <button class="btn works__button magic-hover">Ознакомиться с остальными работами</button>
+      </div>
+    </section>
+
+    <section class="skills padding-item" id="skills">
+      <div class="container">
+        <h2 class="title skills__title">Мои основные навыки</h2>
+        <div class="skills__inner">
+          <div class="skills__left">
+            <p class="skills__text">
+              HTML-верстка сайтов нужна для создания полноценных веб-страниц\сайтов, для последующего размещения оных в
+              сети интернет на всеобщее обозрение. Как правило верстальщик делает свою верстку на основе дизайнерского
+              макета сайта.
+            </p>
+
+            <ul class="skills__list">
+              <li class="skills__item wow slideInLeft">
+                <div class="progress-bar">
+                  <div class="progress-bar__top">
+                    <a class="progress-bar__name magic-hover" href="https://skillbox.ru/media/code/chto_takoe_html/"
+                      target="_blank">html</a>
+                    <span class="progress-bar__percent">90%</span>
+                  </div>
+                  <div class="progress-bar__bottom skills__bar--html"></div>
+                </div>
+              </li>
+
+              <li class="skills__item wow slideInLeft">
+                <div class="progress-bar">
+                  <div class="progress-bar__top">
+                    <a class="progress-bar__name magic-hover"
+                      href="https://medianation.ru/blog/issledovaniya/chto-takoe-css-prostymi-slovami/"
+                      target="_blank">css</a>
+                    <span class="progress-bar__percent">85%</span>
+                  </div>
+                  <div class="progress-bar__bottom skills__bar--css"></div>
+                </div>
+              </li>
+
+              <li class="skills__item wow slideInLeft">
+                <div class="progress-bar">
+                  <div class="progress-bar__top">
+                    <a class="progress-bar__name magic-hover"
+                      href="https://zametkinapolyah.ru/verstka-sajtov/chto-takoe-sass-i-scss-obzor-preprocessora-sass-raznica-mezhdu-sass-i-scss.html"
+                      target="_blank">scss</a>
+                    <span class="progress-bar__percent">80%</span>
+                  </div>
+                  <div class="progress-bar__bottom skills__bar--scss"></div>
+                </div>
+              </li>
+
+              <li class="skills__item wow slideInLeft">
+                <div class="progress-bar">
+                  <div class="progress-bar__top">
+                    <a class="progress-bar__name magic-hover"
+                      href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/JavaScript_basics"
+                      target="_blank">js</a>
+                    <span class="progress-bar__percent">50%</span>
+                  </div>
+                  <div class="progress-bar__bottom skills__bar--js"></div>
+                </div>
+              </li>
+
+              <li class="skills__item wow slideInLeft">
+                <div class="progress-bar">
+                  <div class="progress-bar__top">
+                    <a class="progress-bar__name magic-hover" href="https://imdiz.ru/javascript-jquery-1/"
+                      target="_blank">jquery</a>
+                    <span class="progress-bar__percent">70%</span>
+                  </div>
+                  <div class="progress-bar__bottom skills__bar--jquery"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="skills__right wow fadeInRight" data-wow-delay="0.5s">
+            <li class="skills__item-circle skills__item-circle--jquery">
+              <div class="progressbar circle-bar" data-animate="false">
+                <div class="circle-bar__inner circle" data-size="178" data-percent="70"
+                  data-fill="{ &quot;color&quot;: &quot;#F24E3D&quot;}" data-thickness="60" data-value="0.70">
+                </div>
+
+                <span class="circle-bar__percent">70%</span>
+                <img class="circle-bar__img" src="images/icons/jquery.svg" alt="jquery">
+              </div>
+            </li>
+
+            <li class="skills__item-circle skills__item-circle--scss">
+              <div class="circle-bar">
+                <div class="circle-bar__inner circle" data-size="178"
+                  data-fill="{ &quot;color&quot;: &quot;#8CC63F&quot;}" data-thickness="60" data-value="0.80">
+                </div>
+
+                <span class="circle-bar__percent">80%</span>
+                <img class="circle-bar__img" src="images/icons/sass.svg" alt="sass">
+              </div>
+            </li>
+
+            <li class="skills__item-circle skills__item-circle--js">
+              <div class="circle-bar">
+                <div class="circle circle-bar__inner" data-size="145"
+                  data-fill="{ &quot;color&quot;: &quot;#77C4D3&quot;}" data-thickness="40" data-value="0.50">
+                </div>
+
+                <span class="circle-bar__percent">50%</span>
+                <img class="circle-bar__img" src="images/icons/js.svg" alt="js">
+              </div>
+            </li> 
+
+            <li class="skills__item-circle skills__item-circle--css">
+              <div class="circle-bar">
+                <div class="circle circle-bar__inner" data-size="220"
+                  data-fill="{ &quot;color&quot;: &quot;rgba(212, 20, 90, 1)&quot;}" data-thickness="65"
+                  data-value="0.85">
+                </div>
+
+                <span class="circle-bar__percent">85%</span>
+                <img class="circle-bar__img" src="images/icons/css.svg" alt="css">
+              </div>
+            </li>
+
+            <li class="skills__item-circle skills__item-circle--html">
+              <div class="circle-bar">
+                <div class="circle circle-bar__inner" data-size="315"
+                  data-fill="{ &quot;color&quot;: &quot;rgba(247, 147, 30, 1)&quot;}" data-thickness="110"
+                  data-value="0.90">
+                </div>
+
+                <span class="circle-bar__percent">90%</span>
+                <img class="circle-bar__img" src="images/icons/html.svg" alt="html">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="connection padding-item" id="connection">
+      <div class="container">
+        <div class="connection__inner">
+          <div class="connection__links">
+            <h2 class="title connection__title">контакты</h2>
+            <ul class="connection__list">
+              <li class="connection__item">Email:
+                <a class="connection__link magic-hover" href="mailto:djabraildjj@gmail.com"
+                  target="_blank">djabraildjj@gmail.com</a>
+              </li>
+
+              <li class="connection__item">Telegram:
+                <a class="connection__link magic-hover" href="https://t.me/mmiksaa" target="_blank">mmiksaa</a>
+              </li>
+
+              <li class="connection__item">Instagram:
+                <a class="connection__link magic-hover" href="https://www.instagram.com/4.jeb/"
+                  target="_blank">4.jeb</a>
+              </li>
+
+              <li class="connection__item caps">github:
+                <a class="connection__link magic-hover" href="https://github.com/mmiksaa" target="_blank">mmiksaa</a>
+              </li>
+
+              <li class="connection__item">Discord:
+                <a class="connection__link magic-hover" href="https://discord.com" target="_blank">miksa#6723</a>
+              </li>
+            </ul>
+          </div>
+          <div class="connection__right" id="form">
+            <form class="form connection__form" action="mail.php">
+              <svg class="form__svg">
+                <use xlink:href="images/sprite.svg#cross"></use>
+              </svg>
+
+              <input class="form__input" type="text" name="user_name" placeholder="Как могу к вам обратиться?">
+              <input class="form__input" type="email" name="user_email" placeholder="Укажите вашу почту">
+              <input class="form__input" type="tel" name="user_tel" placeholder="Укажите ваш контактный номер телефона">
+              <textarea class="form__input form__input--textarea scroll"
+                placeholder="Напишите вопрос, который вас интересует"></textarea>
+              <label class="form__work">
+                <input class="hide" type="file" id="file">
+                <span class="select-file form__input form__input--work">Выберите файл с ТЗ и прикрепите</span>
+                <span class="btn form__work-btn magic-hover">Прикрепить</span>
+              </label>
+              <button class="btn form__btn magic-hover">Отправить сообщение</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
