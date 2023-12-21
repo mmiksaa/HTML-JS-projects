@@ -1,3 +1,5 @@
-# Sinauw
+# My old html, js, sass projects
 
-[link to completed project](https://mmiksaa.github.io/Sinauw/dist/)
+use folder as a path name to a website (url + folder name)
+
+[link to completed projects](https://mmiksaa.github.io/)
