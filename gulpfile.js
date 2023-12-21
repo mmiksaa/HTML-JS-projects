@@ -41,7 +41,7 @@ function browsersync() {
       baseDir: 'app/'
     },
     notofy: false
-  })
+  });
 }
 
 function styles() {
@@ -53,19 +53,21 @@ function styles() {
       grid: true
     }))
     .pipe(dest('app/css'))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 
 function  scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
-    'node_modules/rateyo/src/jquery.rateyo.js',
+    'node_modules/jquery-circle-progress/dist/circle-progress.js',
+    'node_modules/wow.js/dist/wow.js',
+    'app/js/magic_mouse.js',
     'app/js/main.js'
   ])
   .pipe(concat('main.min.js'))
   .pipe(uglify())
   .pipe(dest('app/js'))
-  .pipe(browserSync.stream())
+  .pipe(browserSync.stream());
 }
 
 function images() {
@@ -81,21 +83,22 @@ function images() {
       ]
     })
   ]))
-  .pipe(dest('dist/images'))
+  .pipe(dest('dist/images'));
 }
 
 function build() {
   return src([
     'app/*.html',
     'app/fonts/*',
+    'app/*.php',
     'app/css/style.min.css',
-    'app/js/main.min.js'
+    'app/js/main.min.js',
   ], {base: 'app'})
-  .pipe(dest('dist'))
+  .pipe(dest('dist'));
 }
 
 function cleanDist() {
-  return del('dist')
+  return del('dist');
 }
 
 
