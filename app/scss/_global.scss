@@ -1,161 +1,52 @@
-// font-family: 'Montserrat', sans-serif;
-
 body {
-  background-color: #0A0A0A;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  font-size: 18px;
+  font-family: 'VisueltPro', sans-serif;
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.05em;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: $gray;
+  height: 100vh;
+  background-color: #F2F2F2;
+  line-height: 1.3;
+  font-size: 18px;
+  padding: 25px;
+  overflow: auto;
+  overflow-x: hidden;
 
-  &::-webkit-scrollbar {
-    width: 9px;
+  @include maxw($md) {
+    padding: 8px;
   }
 
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
+  &::-webkit-scrollbar {
+    width: 10px !important;
+    background-color: rgba(26, 24, 47, 0.15) !important;
+    border-radius: 5px !important;
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    border: 1px solid rgba(204, 204, 204, 0.5);
-    background-color: $dark-gray;
+    background: rgba(234, 107, 129, 0.5) !important;
+    border-radius: 5px !important;
   }
 
-  @include r($sm) {
-    font-size: 16px;
-  }
+  & * {
+    &::-webkit-scrollbar {
+      width: 1px !important;
+      background-color: rgba(26, 24, 47, 0.15) !important;
+      border-radius: 5px !important;
+    }
 
-  @include r($exsm) {
-    font-size: 14px;
+    &::-webkit-scrollbar-thumb {
+      background: rgba(234, 107, 129, 0.5) !important;
+      border-radius: 5px !important;
+    }
   }
 }
 
 .body--active {
-  @include r($md) {
-    overflow: hidden;
+  @include maxw($md) {
+  overflow: hidden;
   }
 }
 
-.background-hidden {
-  background: none !important;
-}
-
-.container {
-  max-width: 1280px;
-  padding: 0 20px;
-  margin: 0 auto;
-
-  @include r($exsm) {
-    padding: 0 10px;
-  }
-
-  &--small {
-    max-width: 1040px;
-  }
-}
-
-.btn {
-  padding: 17px 35px;
-  background-color: $dark-gray;
-  font-size: 16px;
-  font-weight: 600;
-  border: 3px solid $orange;
-  border-radius: 10px;
-  color: #fff;
-  letter-spacing: 0;
-  transition: 0.5s color, 0.5s border-color;
-  outline: transparent;
-
-  @include r($sm) {
-    padding: 10px;    
-  }
-
-  @include r($exsm) {
-    font-size: 14px;
-  }
-
-  &:focus {
-    border-color: #fff;
-    color: $orange;
-  }
-
-  &:hover {
-    border-color: #fff;
-    color: $orange;
-  }
-}
-
-.caps {
-  text-transform: uppercase;
-}
-
-.sticky-padding {
-  padding-top: 80px;
-  margin-top: -80px;
-}
-
-.burger {
-  width: 50px;
-  height: 40px;
-  padding: 0;
-  background-color: transparent;
-  z-index: 21;
-  position: relative;
-  display: none;
-
-  @include r($md) {
-    display: block;
-  }
-
-  &:active .burger__item {
-    background-color: $orange;
-  }
-
-  &__item {
-    width: 100%;
-    height: 2px;
-    left: 0;
-    background-color: #fff;
-    position: absolute;
-    transition: 0.3s opacity, 0.6s transform;
-    outline: transparent;
-
-    &--top {
-      top: 0;
-    }
-
-    &--center-left,
-    &--center-right {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    &--bottom {
-      bottom: 0;
-    }
-  }
-
-  &--active {
-
-    .burger__item {
-
-      &--top,
-      &--bottom {
-        opacity: 0;
-      }
-
-      &--center-left {
-        transform: rotate(-45deg);
-      }
-
-      &--center-right {
-        transform: rotate(45deg);
-      }
-    }
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .sr-only {
@@ -169,307 +60,612 @@ body {
   border: 0;
 }
 
-.logo {
-  max-width: 185px;
-  width: 100%;
-  height: 125px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: transparent;
+.wrapper {
+  max-width: 1392px;
+  margin: 0 auto;
+  background-image: url('../images/bg.png');
+  background-size: cover;
+  border-radius: 20px;
+  border-radius: 20px;
+  position: relative;
 
-  @include r($lr) {
-    max-width: none;
-    width: auto;
-    height: auto;
+  @include maxw($md) {
+    background-image: url('../images/bg-medium.png');
   }
 
+  @include maxw($md) {
+    background-image: url('../images/bg-small.png');
+  }
+}
+
+.container {
+  padding: 0 20px;
+
+  @include maxw($md) {
+    padding: 0;
+  }
+}
+
+.caps {
+  text-transform: uppercase;
+}
+
+.padding-item {
+  padding: 80px 20px;
+
+  @include maxw(1000px) {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  @include maxw($sm) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+} 
+
+.burger {
+  content: url('../images/icons/burger.svg');
+  display: none;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 20;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin-right: 10px;
+  transition: 2s border;
+
+  @include maxw($md) {
+    display: inline-block;
+  }
+
+  &--active {
+    content: url('../images/icons/burger--active.svg');
+    border: 1px solid #ccc;
+  }
+}
+
+.btn {
+  font-weight: 500;
+  padding: 12px 24px;
+  color: #fff;
+  border: none;
+  background-color: $blue;
+  display: inline-block;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  outline: transparent;
+  transition: 0.3s opacity, 0.3s box-shadow;
+
   &:focus {
-    svg {
-      fill: $orange;
-    }
+    border-color: $dark;
+    box-shadow: 0 0 10px 0 $dark;
   }
 
   &:hover {
-    svg {
-      fill: $orange;
-    }
+    opacity: 0.7;
   }
 
-  &__img {
-    max-width: 125px;
-    height: 85px;
-    fill: #fff;
-    transition: 0.3s fill;
-    object-fit: contain;
+  &--transparent {
+    background-color: #fff;
+    color: $blue;
+    transition: 0.3s box-shadow;
 
-    @include r($lr) {
-      max-width: 100px;
-      height: 70px;
+    &:hover {
+      box-shadow: 0 0 10px 2px $blue;
+      opacity: 1;
     }
   }
+}
+
+.link {
+  border-bottom: 1px solid transparent;
+  transition: 0.6s border-color;
+  outline: transparent;
+  transition: 0.3s color, 0.3s border-color;
+
+  &:focus {
+    border-color: #EB478B;
+  }
+
+  &:hover {
+    border-color: $blue;
+    color: $blue;
+  }
+
+  &:active {
+    transition: 0s color;
+    color: #EB478B;
+  }
+
 }
 
 .title {
-  font-size: 30px;
-  max-width: 90%;
-  text-transform: uppercase;
-  margin: 0 auto;
-  text-align: center;
-  z-index: 1;
-  letter-spacing: 0;
-  color: #fff;
-
-  @include r($exsm) {
-    font-size: 20px;
-  }
-
-  &--line {
-    position: relative;
-
-    &::before,
-    &::after {
-      content: '';
-      width: 200px;
-      height: 3px;
-      top: 50%;
-      transform: translateY(-50%);
-      position: absolute;
-      background-color: $orange;
-
-      @include r($lr) {
-        width: 100px;
-      }
-
-      @include r($md) {
-        width: 50px;
-      }
-
-      @include r($sm) {
-        display: none;
-      }
-    }
-
-    &::after {
-      right: 0;
-    }
-
-    &::before {
-      left: 0;
-    }
-  }
-
-  &--underline {
-    padding-bottom: 20px;
-    border-bottom: 3px solid $orange;
-    max-width: 300px;
-  }
-}
-
-.phone {
   font-weight: 500;
-  outline: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  transition: 0.3s color;
+  font-size: 36px;
+  color: $dark;
+  max-width: 630px;
+  line-height: 1.1;
+  margin-bottom: 40px;
+  @include line-clamp(2);
 
-  &:focus {
-    color: $orange;
-
-    .phone__tel {
-      text-decoration: underline;
-    }
-  }
-
-  &:hover {
-    color: $orange;
-
-    .phone__tel {
-      text-decoration: underline;
-    }
-  }
-
-  &__text {
-    margin-top: 5px;
-    color: $orange;
+  @include maxw($sm) {
+    font-size: 22px;
   }
 }
 
-.form {
-  background-color: $dark-gray;
-  display: flex;
-  flex-direction: column;
-  max-width: 390px;
-  max-height: 460px;
-  padding: 25px 50px;
-  font-size: 14px;
-  border: 2px solid $orange;
-  border-radius: 15px;
+.email-form {
+  
+  &__form {
+    position: relative;
+    margin-bottom: 15px;
 
-  &--white {
-    color: $dark;
-    background-color: #fff;
-    border-color: #fff;
-
-    .form {
-      &__input {
-        color: $dark;
-
-        &::placeholder {
-          color: $dark;
-        }
-      }
-
-      &__btn {
-        background-color: #fff;
-        color: $dark;
-      }
-
-      &__checkbox-hidden {
-
-        &:checked {
-
-          &+.form__checkbox {
-            background-color: $orange;
-          }
-        }
-      }
+    @include maxw($sm) {
+      flex-wrap: wrap;
     }
   }
 
-  &__title {
-    font-weight: 400;
-    font-size: 22px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 25px;
-
-    @include r($sm) {
-      font-size: 18px;
-    }
-  }
-
-  &__input {
+  &__email {
     border: none;
-    background: transparent;
-    border: 2px solid transparent;
-    border-bottom-color: $orange;
-    padding-bottom: 5px;
+    padding: 0 120px 0 8px;
+    width: 100%;
+    min-height: 64px;
+    border-radius: 16px;
     outline: transparent;
-    margin-bottom: 18px;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s background-color;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.5);
+    transition: 0.5s border;
 
     &:focus {
-      background-color: rgba(204, 204, 204, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    @include maxw(387px) {
+      font-size: 16px;
+      padding: 5px 10px;
+      min-height: 50px;
     }
 
     &:hover {
-      background-color: rgba(204, 204, 204, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.3);
     }
-
-    @include r($sm) {
-      margin-bottom: 10px;
-    }
-
-    &::placeholder {
-      color: #fff;
-      font-weight: 500;
-      line-height: 1;
-    }
-
-    &--textarea {
-      border: 2px solid $orange;
-      height: 145px;
-      border-radius: 10px;
-
-      @include r($sm) {
-        height: 105px;
-      }
-
-      &::-webkit-scrollbar {
-        width: 3px;
-        border-radius: 10px;
-        background-color: #f9f9fd;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background-color: $dark;
-      }
-    }
-  }
-
-  &__text {
-    margin-bottom: 15px;
-
-    @include r($sm) {
-      margin-bottom: 5px;
-    }
-  }
-
-  &__bottom {
-    width: 110%;
   }
 
   &__btn {
-    margin: 25px 0 10px 0;
-
-    @include r($sm) {
-      margin: 10px 0;
-    }
-  }
-
-  &__label {
-    display: flex;
-    align-items: flex-start;
-    align-items: center;
-  }
-
-  &__checkbox-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
     position: absolute;
-    width: 1px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 
-    &:checked {
-
-      & + .form__checkbox::after {
-        background-image: url('../images/icons/checkbox.svg');
-      }
-    }
-  }
-
-  &__checkbox {
-    max-width: 16px;
-    width: 100%;
-    height: 16px;
-    margin-right: 5px;
-    border: 1px solid $orange;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    border-radius: 5px;
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background-size: cover;
-      bottom: 3px;
+    @include maxw(387px) {
+      position: relative;
+      width: 100%;
+      transform: translateY(0);
+      right: 0;
     }
   }
 
   &__desc {
-    font-size: 10px;
-    line-height: 1;
+    max-width: 355px;
+    padding-left: 7px;
+  }
+}
+
+.personal-data {
+  color: $dark-light;
+  display: inline-block;
+  font-size: 12px;
+
+  &__link {
+    color: $blue;
+    text-decoration: underline;
+
+    &:hover {
+      color: blue;
+    }
+  }
+}
+
+.rates-card {
+  border: 1px solid #fff;
+  max-width: 318px;
+  overflow: hidden;
+  width: 100%;
+  background-color: rgba(249, 249, 249, 1);
+  box-shadow: 0px 4px 20px rgba(25, 25, 25, 0.05);
+  border-radius: 24px;
+  transition: 0.2s border;
+
+  @include maxw($sm) {
+    max-width: 100%;
+  }
+
+  &:hover {
+    border: 1px solid rgba(25, 25, 25, 0.08);
+  }
+
+  &__top {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px 100px 20px 25px;
+    margin-bottom: 25px;
+    width: 100%;
+    display: inline-block;
+
+    @include maxw($sm) {
+      padding: 15px 0 15px 15px;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: $dark;
+    @include line-clamp(2);
+
+    @include maxw(400px) {
+      font-size: 18px;
+    }
+  }
+
+  &__price {
+    color: $blue;
+    font-size: 24px;
+
+    @include maxw(400px) {
+      font-size: 18px;
+    }
+  }
+
+  &__time {
+    color: rgb(127, 127, 127);
+    margin-left: -3px;
+    text-transform: lowercase;
+  }
+
+  &__list {
+    height: 235px;
+    /***/
+    overflow: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: rgba(26, 24, 47, 0.15);
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(234, 107, 129, 0.5);
+      border-radius: 5px;
+    }
+  }
+
+  &__item {
+    padding-left: 25px;
+    display: flex;
+
+    @include maxw($sm) {
+      padding-left: 15px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &::before,
+    &::after {
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+
+    &--yes::before {
+      content: url('../images/icons/checkmark.svg');
+    }
+
+    &--no::before {
+      content: url('../images/icons/no.svg');
+    }
+  }
+
+  &__text {
+    max-width: 225px;
+    display: flex;
+    align-items: center;
+
+    @include maxw(400px) {
+      font-size: 14px;
+    }
+  }
+
+  &__wrapp {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+
+    @include maxw($sm) {
+      padding: 0 5px 15px;
+    }
+  }
+
+  &__btn {
+
+    @include maxw($sm) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.comment {
+  max-width: 628px;
+  background-color: rgb(247, 247, 246);
+  border-radius: 16px 16px 0px 0px;
+  border: 1px solid #fff;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 25px 16px 16px;
+    border-radius: 16px 16px 0px 0px;
+    background-color: rgb(252, 252, 252);
+
+    @include maxw($sm) {
+      flex-wrap: wrap;
+      padding: 16px;
+    }
+  }
+
+  &__wrapp {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-right: 15px;
+    overflow: hidden;
+
+    @include maxw($sm) {
+      max-width: 48px;
+      max-height: 48px;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    color: $dark;
+    font-weight: 500;
+    @include line-clamp(1);
+    max-width: 145px;
+
+    @include maxw($sm) {
+      margin: 0 auto;
+    }
+  }
+
+  &__time {
+    @include maxw($sm) {
+      font-size: 14px;
+    }
+
+    @include maxw(350px) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    padding: 16px 24px;
+  }
+
+  &__text {
+    margin-bottom: 15px;
     padding-right: 5px;
+    @include line-clamp(5);
+    overflow-y: auto;
+  }
+
+  .jq-ry-container {
+    padding: 0;
+  }
+}
+
+.question-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #fff;
+  border-radius: 16px;
+  transition: 0.5s border-color, 0.5s box-shadow;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba(107, 107, 107, 0.5);
+    box-shadow: 0px 4px 20px rgba(25, 25, 25, 0.2);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 32px;
+    border-radius: 16px 16px 0px 0px;
+    width: 100%;
+    min-height: 95px;
+    
+
+    @include maxw($sm) {
+      min-height: 50px;
+      padding: 13px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+    max-width: 90%;
+    display: flex;
+    @include line-clamp(1);
+
+    @include maxw($sm) {
+      font-size: 20px;
+      max-width: 80%;
+    }
+
+    @include maxw(340px) {
+      font-size: 16px;
+    }
+  }
+
+  &__buttons {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+
+    @include maxw($sm) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__btn {
+    width: 2px;
+    height: 24px;
+    background-color: $dark;
+    display: inline-block;
+    transition: 0.5s transform;
+    position: absolute;
+    
+    @include maxw($sm) {
+      height: 18px;
+    }
+
+    &--top {
+      transform: rotate(450deg);
+    }
+
+    &--bottom {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    padding: 16px 48px 16px 24px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0 0 16px 16px;
+    display: none;
+
+    @include maxw($md) {
+      padding: 16px 24px 24px;
+    }
+  }
+
+  &--active {
+    &:hover {
+      border-color: #fff;
+      box-shadow: none;
+    }
+
+    .question-card {
+
+      &__title {
+        @include line-clamp(10);
+      }
+    
+      &__btn {
+
+        &--top {
+          transform: rotate(45deg);
+        }
+
+        &--bottom {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+
+  &__form {
+    margin-bottom: 40px;
+  }
+
+  &__input {
+    background-color: #F2F2F2;
+    border: 1px solid transparent;
+    outline: transparent;
+    width: 100%;
+    padding: 16px;
+    min-height: 56px;
+    border-radius: 16px;
+    transition: 0.2s border-color;
+
+    @include maxw($sm) {
+      font-size: 14px;
+    }
+
+    &:hover {
+      border-color: $dark;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &--textarea {
+      min-height: 80px;
+      resize: none;
+
+      &::-webkit-scrollbar {
+        width: 3px !important;
+        background-color: rgba(26, 24, 47, 0.15) !important;
+        border-radius: 5px !important;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(234, 107, 129, 0.5) !important;
+        border-radius: 5px !important;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 465px;
+
+    @include maxw($md) {
+      max-width: 100%;
+    }
+
+    @include maxw($sm) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__desc {
+    max-width: 238px;
+
+    @include maxw($sm) {
+      max-width: 100%;
+      margin-top: 16px;
+    }
   }
 }

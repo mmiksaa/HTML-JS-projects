@@ -9,11 +9,8 @@
   "author": "miksa",
   "license": "ISC",
   "devDependencies": {
-    "@fancyapps/fancybox": "^3.5.7",
-    "animate.css": "^4.1.1",
     "browser-sync": "^2.26.14",
     "del": "^6.0.0",
-    "fancybox": "^3.0.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
@@ -21,11 +18,12 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.6.0",
-    "slick-carousel": "^1.8.1"
+    "rateyo": "^2.3.2"
   },
   "dependencies": {
-    "@fancyapps/ui": "^4.0.0-alpha.4",
     "gulp-file-include": "^2.3.0",
-    "gulp-svg-sprite": "^1.5.0"
+    "gulp-svg-sprite": "^1.5.0",
+    "smooth-scrollbar": "^8.6.3",
+    "wow.js": "^1.2.2"
   }
 }

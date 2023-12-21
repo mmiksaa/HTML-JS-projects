@@ -1,1712 +1,1119 @@
 @import 'fonts';
+@import 'libs';
 @import 'vars';
 @import 'mixin';
 @import 'reset';
-@import 'libs';
 @import 'global';
 
 .header {
   position: relative;
-  padding-bottom: 150px;
-  letter-spacing: 0;
 
-  @include r(1430px) {
+  @include maxw($md) {
     overflow: hidden;
   }
 
-  @include r($md) {
-    padding-bottom: 70px;
+  @include maxw($sm) {
+    overflow: visible;
   }
 
+  &__container {
+    border-radius: 24px 24px 0 0;
+  }
+
+  &__inner {
+    padding: 0 35px 80px;
+
+    @include maxw($lr) {
+      padding: 0 10px 60px;
+    }
+
+    @include maxw($sm) {
+      padding: 0 10px 40px;
+    }
+  }
+  
   &__top {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 50px;
+    padding: 16px 0;
+    margin-bottom: 120px;
+    transition: 1s border-radius, 2s background-color, 1s padding;
 
-    @include r($lr) {
-      padding: 20px 0;
+    @include maxw($lr) {
+      margin-bottom: 10px;
     }
 
-    @include r($md) {
+    @include maxw($md) {
       position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 22;
       width: 100%;
-      left: 0;
-      padding: 20px;
-      margin-bottom: 0;
-      z-index: 20;
-      transition: 0.4s padding, 2s background-color;
+      padding: 25px 30px 16px 30px;
+
+      @include maxw($sm) {
+        padding: 20px;
+      }
 
       &--sticky {
-        padding: 10px 20px;
-        background-color: rgba(61, 61, 61, 0.9);
+        background: rgba(71, 84, 235, 0.6);
+        backdrop-filter: blur(5px);
+        padding: 5px 16px;
 
-        @include r($sm) {
-          padding: 10px;
+        @include maxw($sm) {
+          padding: 5px 10px;
         }
+      }
+
+      &--active {
+        border-radius: 24px 24px 0 0;
+        padding-top: 20px;
       }
     }
   }
 
-  &__logo-img {
+  &__box {
+    display: flex;
+    align-items: center;
+  }
 
-    @include r($md) {
-      max-width: 85px;
-      height: 60px;
-      z-index: 21;
+  &__btn {
+    z-index: 30;
+
+    @include maxw($sm) {
+      border-radius: 50%;
     }
 
-    @include r($sm) {
-      max-width: 68px;
-      height: 45px;
+    @include maxw($sm) {
+      content: url('../images/icons/profile.svg');
+      padding: 13px 15px;
     }
+  }
+
+  &__logo {
+    z-index: 30;
   }
 
   &__nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    width: 100%;
+    transition: 0.5s transform;
 
-    @include r($lr) {
-      margin-left: 20px;
+    @include maxw($lr) {
+      width: 100%;
+      order: 3;
     }
 
-    @include r($md) {
-      transform: translateX(200%);
-      flex-direction: column;
+    @include maxw($md) {
+      background: rgba(255, 255, 255, 0.65);
+      transform: translateY(-200%);
+      border-radius: 24px;
+      color: $dark;
+      background-color: #fff;
       position: absolute;
+      padding: 0;
+      width: 100%;
+      z-index: 19;
       top: 0;
-      right: 0;
-      margin-left: 0;
-      width: 400px;
-      padding: 130px 0 50px;
+      display: block;
+      left: 0;
       height: 100vh;
-      z-index: 20;
-      background-color: rgba(61, 61, 61, 0.8);
-      backdrop-filter: blur(8px);
-      align-items: flex-start;
-      overflow: auto;
-      transition: 0.5s transform;
 
-      &--active {
-        transform: translate(0);
+      &::before {
+        content: 'menu';
+        text-decoration: underline;
+        color: $gray;
+        font-weight: 500;
+        position: absolute;
+        font-size: 24px;
+        top: 100px;
+        left: 50px;
+
+        @include maxw($sm) {
+          left: 30px;
+        }
       }
     }
 
-    @include r($sm) {
+    &--active {
+      transform: translateY(0%);
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+
+    @include maxw($lr) {
+      padding: 20px 0;
+    }
+
+    @include maxw($md) {
+      flex-direction: column;
+      margin-top: 150px;
+      padding-bottom: 150px;
+      border-radius: 24px;
+      overflow: auto;
       width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__nav-item {
+  
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    @include maxw($md) {
+      font-size: 56px;
+      font-weight: 500;
+    }
+
+    @include maxw(595px) {
+      font-size: 36px;
+    }
+
+    @include maxw(450px) {
+      font-size: 30px;
+    }
+
+    @include maxw(375px) {
+      font-size: 24px;
+    }
+  }
+
+  &__content {
+    max-width: 465px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: 56px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    @include line-clamp(4);
+
+    @include maxw($sm) {
+      font-size: 36px;
+      font-size: 23px;
+    }
+  }
+
+  &__nav-link {
+    @include maxw($lr) {
+      margin-bottom: 35px;
+    }
+
+    @include maxw($md) {
+      display: inline-block;
+      width: 100%;
+      padding: 0 50px;
+      margin-bottom: 15px;
+    }
+
+    @include maxw($sm) {
+      padding: 0 30px;
+    }
+  }
+
+  &__wrapp {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    @include maxw($md) {
+      padding-top: 120px;
+    }
+
+    @include maxw($sm) {
+      padding-top: 100px;
+    }
+  }
+
+  &__img-wrapp {
+    max-width: 500px;
+    margin-right: 55px;
+    margin-top: -55px;
+    display: inline-block;
+    max-height: 500px;
+    width: 100%;
+    position: relative;
+
+    @include maxw(1125px) {
+      margin: 0 auto;
+    }
+
+    @include maxw(612px) {
+      margin-left: -100px;
+      width: 500px;
+    }
+
+    @include maxw($md) {
+      max-width: 345px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &::after {
+      content: '';
+      width: 465px;
+      height: 465px;
+      position: absolute;
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
+      left: 85px;
+      top: -10px;
+      z-index: 0;
+
+      @include maxw($md) {
+        width: 265px;
+        height: 265px;
+        top: 10px;
+      }
+
+      @include maxw(440px) {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      width: 300px;
+      height: 300px;
+      background-color: $blue;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 0;
+      left: -50px;
+      z-index: 0;
+
+      @include maxw($md) {
+        width: 185px;
+        height: 185px;
+        bottom: 20px;
+        left: 0px;
+      }
+
+      @include maxw(440px) {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+    display: inline-block;
+    z-index: 1;
+  }
+
+  &__swipe {
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    @include maxw($md) {
+      display: none;
+    }
+
+    &::before {
+      content: url('../images/icons/swipe.svg');
+      margin-right: 8px;
+      height: 32px;
+    }
+  }
+}
+
+.advantages {
+  background-color: #fff;
+  padding: 80px 40px;
+
+  @include maxw($md) {
+    padding-right: 20px; 
+    padding-left: 20px;
+  }
+
+  @include maxw($sm) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &__title {
+    @include maxw($sm) {
+      padding-left: 12px;
     }
   }
 
   &__list {
     display: flex;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-    @include r($md) {
-      flex-direction: column;
-      font-size: 30px;
-      margin-bottom: 50px;
-      width: 100%;
+    @include maxw(1329px) {
+      justify-content: center;
     }
   }
 
   &__item {
+    max-width: 390px;
+    border: 1px solid #fff;
+    box-shadow: 0px 4px 20px rgba(25, 25, 25, 0.05);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    
     &:not(:last-child) {
-      margin-right: 70px;
+      margin-right: 15px;
+    }
 
-      @include r($lr) {
-        margin-right: 30px;
-      }
+    @include maxw(1329px) {
+      margin-bottom: 30px;
+    }
 
-      @include r($md) {
-        margin-bottom: 50px;
-        width: 100%;
+    @include maxw($md) {  
+      max-width: 100%;
+
+      &:not(:last-child) {
+        margin-right: 0;
       }
+    }
+    
+    @include maxw($sm) {
+      margin-bottom: 15px;
     }
   }
 
-  &__link {
-    border-bottom: 2px solid transparent;
-    padding-bottom: 3px;
-    transition: 0.3s border-color, 0.3s color;
-    outline: transparent;
+  &__top-wrapp {
+    color: $dark;
+    max-width: 440px;
+    min-height: 80px;
+    padding-left: 16px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
 
-    @include r($md) {
-      display: inline-block;
+    @include maxw($sm) {
+      max-width: 90%;
+    }
+
+    &::before {
+      margin-right: 12px;
+      max-width: 56px;
       width: 100%;
-      padding: 0 30px;
+      min-height: 56px;
+      padding-right: 5px;
+
+      @include maxw($sm) {
+        padding-right: 50px;
+      }
     }
 
-    &:focus {
-      border-color: $orange;
-      color: #ccc;
+    &--simpl {
+      &::before {
+        content: '';
+        background-image: url('../images/content/advantages/1.png');
+      }
     }
 
-    &:hover {
-      border-color: $orange;
-      color: #ccc;
+    &--fast {
+      &::before {
+        content: '';
+        background-image: url('../images/content/advantages/2.png');
+      }
     }
 
-    &:active {
-      color: $orange;
+    &--qualitatively {
+      &::before {
+        content: '';
+        background-image: url('../images/content/advantages/3.png');
+      }
     }
   }
 
-  &__phone {
+  &__top {
+    font-weight: 500;
+    @include line-clamp(2);
+    max-width: 249px;
+  }
 
-    @include r($md) {
-      margin-left: 30px;
+&__wrapp {
+  padding: 16px 25px 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+  &__text {
+    @include line-clamp(5);
+    overflow: auto;
+    padding-right: 5px;
+
+    @include maxw($sm) {
+      font-size: 14px;
+    }
+  }
+}
+
+.work {
+
+  &__padding {
+    padding: 80px 52px;
+
+    @include maxw($md) {
+      padding-left: 20px;
+      padding-right: 20px;
     }
   }
 
   &__content {
     display: flex;
-    justify-content: space-between;
 
-    @include r($exlr) {
+    @include maxw(1260px) {
       flex-wrap: wrap;
-    }
-
-    @include r($md) {
-      padding-top: 150px;
+      justify-content: center;
     }
   }
 
-  &__text {
-    padding-left: 30px;
+  &__wrapp {
+    max-width: 540px;
+    min-height: 540px;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    margin: 0 25px 0 90px;
 
-    @include r($exlr) {
-      margin-bottom: 100px;
+    @include maxw(1160px) {
+      margin: 0;
     }
 
-    @include r($sm) {
-      padding-left: 0;
-      margin-bottom: 50px;
-    }
-  }
-
-  &__title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 60px;
-    max-width: 530px;
-    margin-bottom: 75px;
-
-    @include r($exlr) {
-      max-width: 90%;
+    @include maxw($md) {
+      max-width: 440px;
+      min-height: 440px;
     }
 
-    @include r($lr) {
-      margin-bottom: 45px;
+    @include maxw(560px) {
+      max-width: 340px;
+      min-height: 340px;
     }
 
-    @include r($sm) {
+    @include maxw(400px) {
+      max-width: 230px;
+      min-height: 230px;
+    }
+
+    &::after {
+      content: '';
       max-width: 100%;
-      font-size: 40px;
-      margin: 0 auto 45px;
-      text-align: center;
+      width: 100%;
+      min-height: 100%;
+      border-radius: 50%;
+      background-color: #fff;
+      z-index: 1;
+      bottom: 0;
+      position: absolute;
     }
 
-    @include r($exsm) {
-      font-size: 30px;
+    &::before {
+      content: '';
+      max-width: 300px;
+      width: 100%;
+      min-height: 300px;
+      border-radius: 50%;
+      background-color: #EB478B;
+      z-index: 0;
+      position: absolute;
+      bottom: 0;
+      left: -90px;
+
+      @include maxw($md) {
+        display: none;
+      }
     }
   }
 
-  &__desc {
-    display: block;
-    font-size: 22px;
-    max-width: 320px;
-    margin-bottom: 85px;
+  &__img {
+    max-width: 100%;
+    min-height: 100%;
+    position: relative;
+    z-index: 2;
+    object-fit: cover;
+  }
 
-    @include r($lr) {
-      margin-bottom: 35px;
+  &__tabs {
+    position: relative;
+
+    @include maxw(1260px) {
+      margin-top: 30px;
     }
 
-    @include r($sm) {
-      text-align: center;
-      margin: 0 auto 35px;
-      max-width: 100%;
+    &-item {
+      display: none;
+
+      &--active {
+        display: block;
+      }
+    }
+
+    &-buttons {
+      color: #fff;
+      margin-bottom: 30px;
+
+      @include maxw($md) {
+        margin-bottom: 25px;
+      }
+    }
+
+    &-btn {
+      position: relative;
+      transition: 0.3s color, 0s font-weight;
+
+      @include maxw($lr) {
+        padding: 15px 0;
+      }
+
+      @include maxw($sm) {
+        font-size: 14px;
+      }
+
+      @include maxw(1329px) {
+        color: $dark-light;
+      }
+
+      &:hover {
+        border: none;
+      }
+
+      &:not(:last-child) {
+        margin-right: 55px;
+
+        @include maxw($sm) {
+          margin-right: 30px;
+        }
+
+        &::after {
+          content: '';
+          background-color: #fff;
+          width: 24px;
+          height: 2px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: -40px;
+
+          @include maxw(1329px) {
+            background-color: #ccc;
+          }
+
+          @include maxw($lr) {
+            
+          }
+
+          @include maxw($md) {
+            width: 16px;
+            right: -35px;
+          }
+
+          @include maxw($sm) {
+            right: -25px;
+          }
+        }
+      }
+
+      &--active {
+        color: $blue;
+        font-weight: 500;
+
+        @include maxw($md) {
+          font-weight: 400;
+        }
+      }
+    }
+
+    &-title {
+      margin-bottom: 15px;
+      max-width: 460px;
+      @include line-clamp(3);
+    }
+
+    &-desc {
+      color: $blue;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 25px;
+      @include line-clamp(2);
+
+      @include maxw($sm) {
+        font-size: 14px;
+      }
+    }
+
+    &-txt {
+      max-height: 210px;
+      max-width: 460px;
+      overflow: auto;
+      padding-right: 5px;
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+        background-color: rgba(26, 24, 47, 0.15);
+        border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(234, 107, 129, 0.5);
+        border-radius: 5px;
+      }
+    }
+
+    &-text {
+
+      @include maxw($md) {
+        font-size: 14px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
     }
   }
 
   &__btn {
-    max-width: 300px;
-    display: inline-block;
-    text-align: center;
-
-    @include r($sm) {
-      max-width: 100%;
-      width: 100%;
-    }
-  }
-
-  &__slider-item {
-    max-width: 640px;
-    max-height: 440px;
-  }
-
-  &__slider {
-    position: relative;
-    max-width: 640px;
-
-    @include r($exlr) {
-      max-width: 100%;
-    }
-
-    @include r($md) {
-      max-width: calc(100% + 40px);
-      margin-left: -20px;
-    }
-
-    &::after {
-      content: '';
-      border: 10px solid $orange;
-      border-right: transparent;
-      min-height: 520px;
-      width: 100%;
-      position: absolute;
-      z-index: -1;
-      top: -30px;
-      left: 95px;
-
-      @include r($exlr) {
-        top: -10px;
-        left: 0;
-        border-left: transparent;
-        border-width: 5px;
-        min-height: calc(100% + 20px);
-      }
-
-      @include r($md) {
-        border-width: 3px;
-      }
-
-      @include r($sm) {
-        display: none;
-      }
-    }
-  }
-
-  &__img {
-    width: 100%;
-    min-height: 440px;
-    object-fit: cover;
-
-    @include r($exlr) {
-      min-height: 350px;
-      border-right: 3px solid $dark-gray;
-    }
-
-    @include r($md) {
-      min-height: auto;
-    }
-  }
-
-  .slick-arrow {
-    background-image: url('../images/icons/arrow.svg');
-    background-repeat: no-repeat;
-    width: 30px;
-    height: 58px;
-    font-size: 0px;
-    background-color: transparent;
     position: absolute;
-    top: 50%;
-    border: 1px solid transparent;
-    left: 15px;
-    transform: translateY(-50%);
-    transition: 0.3s background-color;
-    outline: transparent;
-    z-index: 1;
+    bottom: -10px;
 
-    &:focus {
-      background-color: rgba(255, 255, 255, 0.3);
+    @include maxw(1260px) {
+      position: static;
+      margin-top: 10px;
     }
 
-    &:active {
-      background-color: rgba(255, 255, 255, 0.3);
+    @include maxw($md) {
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
     }
-  }
-
-  .slick-dots {
-    display: flex;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 13px;
-    position: absolute;
-
-    & li {
-      background-color: transparent;
-      font-size: 0;
-      background-color: #fff;
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      cursor: pointer;
-
-      @include r($sm) {
-        width: 10px;
-        height: 10px;
-      }
-
-      &:hover {
-        opacity: 0.6;
-      }
-
-      &:not(:last-child) {
-        margin-right: 15px;
-
-        @include r($sm) {
-          margin-right: 10px;
-        }
-      }
-    }
-
-    .slick-active {
-      background-color: $orange;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
-
-  .slick-next {
-    transform: translateY(-50%) rotate(-180deg);
-    left: auto;
-    right: 15px;
   }
 }
 
-.work {
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 505px;
-  position: relative;
-  padding: 60px 0 0;
-  margin-bottom: 95px;
-
-  @include r($md) {
-    margin-bottom: 80px;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.85);
-  }
-
-  &__wrapp {
-    position: relative;
-    z-index: 1;
-  }
-
-  &__title {
-    margin-bottom: 55px;
-
-    @include r($exsm) {
-      margin-bottom: 30px;
-    }
-  }
+.rates {
+  background-color: #fff;
 
   &__list {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 
-    @include r($exlr) {
-      justify-content: space-between;
+    @include maxw($lr) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+    }
+
+    @include maxw($sm) {
+      display: flex;
+      flex-direction: column;
     }
   }
 
   &__item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 55px;
-
-    @include r($exsm) {
-      margin-bottom: 30px;
+    @include maxw($lr) {
+      margin: 0 auto;  
     }
 
-    &:nth-child(even) {
-      margin-left: 200px;
+    @include maxw($sm) {
+      width: 100%;
+    }
 
-      @include r($exlr) {
-        margin-left: 0;
+    &:not(:last-child) {
+      margin-right: 15px;
+      
+      @include maxw(1288px) {
+        margin-bottom: 30px;
+      }
+
+      @include maxw($lr) {
+        margin: 0 auto;
       }
     }
-  }
-
-  &__num {
-    color: rgba(255, 122, 0, 0.5);
-    font-size: 60px;
-    margin-right: 15px;
-    line-height: 1;
-
-    @include r($sm) {
-      font-size: 50px;
-    }
-
-    @include r($exsm) {
-      font-size: 30px;
-      margin-right: 5px;
-    }
-  }
-
-  &__text {
-    max-width: 305px;
-    @include line-clamp(3);
-
-    @include r($lr) {
-      max-width: 100%;
-    }
-  }
-}
-
-.services {
-  margin-bottom: 110px;
-
-  @include r($md) {
-    margin-bottom: 80px;
-  }
-
-  &--work {
-    background-image: url('../images/content/services/1.jpg');
-  }
-
-  &--home {
-    background-image: url('../images/content/services/2.jpg');
-  }
-
-  &--electrician {
-    background-image: url('../images/content/services/3.jpg');
-  }
-
-  &--plumbing {
-    background-image: url('../images/content/services/4.jpg');
   }
 
   &__title {
-    margin-bottom: 65px;
+    padding-left: 30px;
+  }
+}
+
+.reviews {
+  position: relative;
+
+  &__list--active {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px 0;
+
+    & .reviews__item {
+      position: static;
+    }
   }
 
-  &__list {
-    position: relative;
-    margin-bottom: 75px;
+  &__padding {
+    min-height: 800px;
+    padding: 80px 30px;
 
-    @include r($md) {
-      margin-bottom: 30px;
+    @include maxw($sm) {
+      padding: 40px 0;
+    }
+  }
+
+  &__title {
+    @include maxw($sm) {
+      padding-left: 15px;
     }
   }
 
   &__item {
-    max-width: 385px;
-    transition: 0.3s color;
+    position: absolute;
 
-    @include r($md) {
-      max-width: 100%;
-      border: 2px solid $orange;
-      background-size: cover;
-      position: relative;
+    @include maxw($md) {
+      position: static;
 
-      &--work {
-        background-image: url('../images/content/services/1.jpg');
+      &:not(:last-child) {
+        margin-bottom: 15px;
       }
+    }
 
-      &--home {
-        background-image: url('../images/content/services/2.jpg');
-      }
+    &--semyon {
+      top: 160px;
+      left: 345px;
+      z-index: 4;
+    }
 
-      &--electrician {
-        background-image: url('../images/content/services/3.jpg');
-      }
+    &--olezhka {
+      top: 215px;
+      left: 23px;
+      z-index: 3;
+    }
 
-      &--plumbing {
-        background-image: url('../images/content/services/4.jpg');
-      }
+    &--innokenty {
+      top: 350px;
+      right: 25px;
+      z-index: 2;
+    }
+
+    &--seryoga {
+      bottom: 80px;
+      left: 185px;
+      z-index: 1;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 80px;
+    right: 60px;
+    z-index: 5;
+
+    @include maxw($md) {
+      display: none;
+    }
+
+    &::after {
+      content: 'Structuring cats';
+    }
+
+    &--active {
+      box-shadow: 0 0 30px 2px #EB478B;
 
       &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.70);
-        transition: 1s background-color;
+        content: 'Scatter the cat';
       }
-    }
-
-    &:hover {
-      .services {
-        &__name-wrapp {
-          &::after {
-            background-color: rgba(0, 0, 0, 0.95);
-
-            @include r($md) {
-              background-color: transparent;
-            }
-          }
-        }
-      }
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 15px;
-    }
-
-    &--active {
-      color: $orange;
-
-      @include r($md) {
-        color: inherit;
-
-        &::after {
-          background-color: rgba(0, 0, 0, 0.95);
-        }
-      }
-
-      .services {
-        &__name-wrapp {
-
-          &::after {
-            background-color: rgba(0, 0, 0, 0.95);
-
-            @include r($md) {
-              background-color: transparent;
-            }
-          }
-
-          svg {
-            fill: $orange;
-
-            @include r($md) {
-              display: none;
-            }
-          }
-        }
-
-        &__wrapp {
-          display: block;
-        }
-
-        &__name {
-          font-weight: 500;
-          color: $orange;
-
-          @include r($sm) {
-            padding: 30px 10px 20px;
-          }
-        }
-      }
-    }
-  }
-
-  &__name-wrapp {
-    cursor: pointer;
-    background-size: cover;
-    max-width: 385px;
-    width: 100%;
-    min-height: 175px;
-    position: relative;
-    border: 4px solid $orange;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-    @include r($exlr) {
-      max-width: 350px;
-    }
-
-    @include r($lr) {
-      max-width: 200px;
-    }
-
-    @include r($md) {
-      max-width: 100%;
-      background-image: none;
-      border: none;
-      min-height: 130px;
-    }
-
-    @include r($sm) {
-      min-height: 0;
-    }
-
-    svg {
-      position: absolute;
-      width: 22px;
-      left: 10px;
-      bottom: 15px;
-      fill: #fff;
-      z-index: 1;
-      transition: 0.3s fill;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.70);
-      transition: 0.3s background-color;
-
-      @include r($md) {
-        display: none;
-      }
-    }
-  }
-
-  &__name {
-    max-width: 190px;
-    text-align: center;
-    font-size: 22px;
-    position: relative;
-    z-index: 1;
-    transition: 0.3s color;
-
-    @include r($md) {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    @include r($sm) {
-      transition: 0.3s padding;
-      padding: 60px 10px;
-    }
-  }
-
-  &__wrapp {
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    height: 745px;
-    max-width: 590px;
-    width: 100%;
-    border: 4px solid $orange;
-    padding: 40px 0 20px;
-    color: #fff;
-    display: none;
-
-    @include r($exlr) {
-      max-width: 500px;
-    }
-
-    @include r($lr) {
-      max-width: 480px;
-    }
-
-    @include r($md) {
-      position: static;
-      display: none;
-      max-width: 100%;
-      border: none;
-      background-image: none;
-      padding: 0;
-      padding-bottom: 10px;
-      height: auto;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      height: 100%;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.70);
-
-      @include r($md) {
-        background-color: transparent;
-      }
-    }
-  }
-
-  &__text-title {
-    margin-bottom: 50px;
-    color: $orange;
-    font-size: 24px;
-    z-index: 1;
-    position: relative;
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-    @include line-clamp(3);
-
-    @include r($md) {
-      display: none;
-    }
-  }
-
-  &__text-list {
-    position: relative;
-    z-index: 1;
-    padding: 0 30px 10px 100px;
-    line-height: 1;
-    max-height: 600px;
-    overflow: auto;
-
-    @include r($exlr) {
-      padding: 0 20px 10px 50px;
-    }
-
-    @include r($lr) {
-      padding: 0 20px 10px 30px;
-    }
-
-    @include r($md) {
-      max-height: 300px;
-      padding: 0 10px 20px 50px;
-    }
-
-    @include r($sm) {
-      padding: 0 10px 20px 30px;
-    }
-
-    &::-webkit-scrollbar {
-      width: 9px;
-
-      @include r($md) {
-        width: 5px;
-      }
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      border: 1px solid rgba(204, 204, 204, 0.5);
-      background-color: $dark-gray;
-    }
-  }
-
-  &__text-item {
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: #fff;
-      border-radius: 50%;
-      top: 50%;
-      left: -15px;
-      transform: translateY(-50%);
-    }
-
-    @include r($sm) {
-      font-size: 14px;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
-  }
-
-  &__text {
-    font-size: 22px;
-    max-width: 1200px;
-    margin: 0 auto 50px;
-
-    @include r($sm) {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-  }
-
-  &__desc {
-    font-size: 30px;
-    color: $orange;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-
-    @include r($sm) {
-      font-size: 18px;
-    }
-  }
-}
-
-.fill-form {
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 600px;
-  position: relative;
-  margin-bottom: 130px;
-
-  @include r($md) {
-    margin-bottom: 80px;
-  }
-
-  @include r($sm) {
-    min-height: auto;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-
-  &__inner {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    z-index: 1;
-
-    @include r($lr) {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
-
-  &__form {
-    margin-top: 50px;
-
-    @include r($lr) {
-      max-width: calc(100% - 250px);
-      width: 100%;
-      margin-bottom: 30px;
-    }
-
-    @include r($md) {
-      max-width: 500px;
-    }
-
-    @include r($sm) {
-      max-width: 100%;
-    }
-
-    @include r($sm) {
-      margin: 32px 16px;
-      width: 100%;
-      max-width: 100%;
-      padding: 25px;
-    }
-
-    @include r($exsm) {
-      margin: 16px 0;
-    }
-  }
-
-  &__img {
-    margin: -70px -45px 0 0;
-    position: relative;
-    object-fit: contain;
-    max-width: 610px;
-    width: 100%;
-    max-height: 675px;
-
-    @include r($exlr) {
-      margin-right: 0;
-    }
-
-    @include r($lr) {
-      order: -1;
-    }
-
-    @include r($sm) {
-      display: none;
-    }
-  }
-}
-
-.about-us {
-  margin-bottom: 100px;
-
-  @include r($md) {
-    margin-bottom: 80px;
-  }
-
-  &__wrapp {
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.85);
-    }
-  }
-
-  &__inner {
-    display: flex;
-    justify-content: space-between;
-    padding: 45px 0 75px;
-    position: relative;
-    z-index: 1;
-
-    @include r($md) {
-      justify-content: center;
-      padding: 15px 0 30px;
-    }
-  }
-
-  &__title {
-    text-transform: uppercase;
-    color: $orange;
-    font-size: 70px;
-    margin-bottom: 50px;
-    text-align: center;
-
-    @include r($exsm) {
-      font-size: 25px;
-      margin-bottom: 20px;
-    }
-  }
-
-  &__list {
-    max-width: 490px;
-
-    @include r($md) {
-      width: 100%;
-    }
-
-    @include r($sm) {
-      text-align: center;
-    }
-  }
-
-  &__item {
-    padding-bottom: 13px;
-    border-bottom: 2px solid $orange;
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
-  }
-
-  &__round-list {
-    display: none;
-    overflow-x: auto;
-
-    &::-webkit-scrollbar {
-      width: 3px;
-      background-color: rgba(0, 0, 0, 0);
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-      border-bottom: 1px solid #888888;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: $orange;
-      width: 2px;
-    }
-
-    @include r($md) {
-      display: flex;
-      padding: 32px 16px;
-    }
-  }
-
-  &__round-item {
-
-    @include r($md) {
-      &:not(:last-child) {
-        margin-right: 25px;
-      }
-    }
-  }
-
-  &__round {
-    margin-top: 65px;
-    border: 3px solid $orange;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    padding: 35px 0 55px;
-    text-align: center;
-
-    @include r($md) {
-      margin-top: 0;
-    }
-
-    @include r($sm) {
-      padding: 20px;
-      font-size: 16px;
-      width: 185px;
-      height: 185px;
-    }
-
-    &--white {
-      background-color: #fff;
-      border-color: #ccc;
-      color: #000;
-    }
-
-    &--hidden {
-      margin-right: 150px;
-
-      @include r($exlr) {
-        margin-right: 0;
-      }
-      
-      @include r($md) {
-        display: none;
-      }
-    }
-  }
-
-  &__top {
-    @include line-clamp(2);
-  }
-
-  &__num {
-    font-size: 100px;
-    color: $orange;
-    font-weight: 700;
-
-    @include r($sm) {
-      font-size: 70px;
-    }
-  }
-
-  &__bottom {
-    @include line-clamp(2);
-  }
-}
-
-.portfolio {
-  margin-bottom: 150px;
-
-  @include r($md) {
-    margin-bottom: 80px;
-  }
-
-  &__title {
-    margin-bottom: 95px;
-
-    @include r($md) {
-      margin-bottom: 50px;
-    }
-  }
-
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 70px 50px;
-    position: relative;
-    padding: 0 25px 40px 0;
-
-    @include r($md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include r($sm) {
-      grid-gap: 50px 40px;
-    }
-
-    @include r($exsm) {
-      grid-gap: 30px;
-      padding-right: 10px;
-    }
-  }
-
-  &__box {
-    max-width: 360px;
-    max-height: 360px;
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-
-    &::after {
-      content: '';
-      position: absolute;
-      max-width: 360px;
-      width: 100%;
-      height: 100%;
-      top: 34px;
-      left: 37px;
-      border: 3px solid $orange;
-      border-radius: 10px;
-
-      @include r($md) {
-        left: 20px;
-        top: 20px;
-      }
-
-      @include r($exsm) {
-        left: 10px;
-        top: 10px;
-      }
-    }
-
-    &:hover {
-      .portfolio__img {
-        transform: scale(1.2);
-      }
-    }
-  }
-
-  &__wrapp {
-    max-width: 360px;
-    height: 360px;
-    overflow: hidden;
-    display: block;
-    border-radius: 10px;
-
-    @include r($exlr) {
-      height: 350px;
-    }
-
-    @include r($lr) {
-      height: 250px;
-    }
-
-    @include r(487px) {
-      height: 200px;
-    }
-
-    @include r($exsm) {
-      height: 150px;
-    }
-  }
-
-  &__img {
-    width: 360px;
-    height: 360px;
-    object-fit: cover;
-    position: relative;
-    z-index: 1;
-    transition: 0.5s transform;
-
-    @include r($exlr) {
-      height: 350px;
-    }
-
-    @include r($lr) {
-      height: 250px;
-    }
-  }
-
-  &__text {
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 20px 0;
-    width: 100%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  &__open {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: auto;
-    width: 100%;
-    z-index: 3;
-    background-color: #0A0A0A;
-    padding: 50px 20px;
-    border-radius: 10px;
-    border: 3px solid $orange;
-
-    @include r($sm) {
-      padding: 30px 10px;
-    }
-
-    &--active {
-      display: block;
-    }
-
-    &-btn {
-      position: absolute;
-      background-image: url('../images/icons/exit.svg');
-      right: 50px;
-      top: 50px;
-      cursor: pointer;
-      background-color: transparent;
 
       &:hover {
-        svg {
-          fill: $orange;  
-        }
-      }
-
-      @include r($sm) {
-        right: 10px;
-        top: 10px
-      }
-    }
-
-    & svg {
-      fill: #fff;
-      transition: 0.5s fill;
-      width: 50px;
-      height: 50px;
-    }
-
-    &-title {
-      font-size: 40px;
-      margin-bottom: 100px;
-      text-align: center;
-      display: inline-block;
-      width: 100%;
-
-      @include r($md) {
-        margin-bottom: 50px;
-      }
-    }
-
-    &-img {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      object-fit: cover;
-      width: 360px;
-      height: 360px;
-
-      @include r($exlr) {
-        height: 350px;
-      }
-
-      @include r($lr) {
-        height: 250px;
-      }
-
-      @include r($sm) {
-        height: 210px;
-      }
-
-      @include r(487px) {
-        height: 170px;
-      }
-
-      @include r($exsm) {
-        height: 150px;
-      }
-    }
-
-    &-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 70px 50px;
-      padding-right: 50px;
-      overflow: auto;
-      width: 100%;
-      max-height: 800px;
-
-      @include r($exlr) {
-        padding-right: 25px;
-      }
-
-      @include r($lr) {
-        grid-gap: 40px;
-      }
-
-      @include r($md) {
-        grid-template-columns: repeat(2, 1fr);
-        max-height: 560px;
-      }
-      
-      @include r($sm) {
-        grid-gap: 20px;
-      }
-
-      @include r(487px) {
-        grid-template-columns: repeat(1, 1fr);
-      }
-
-      &::-webkit-scrollbar {
-        width: 3px;
-        background-color: rgba(0, 0, 0, 0);
-      }
-
-      &::-webkit-scrollbar-track {
-        background-color: transparent;
-        background-color: #000000;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: $orange;
-        width: 2px;
-      }
-
-      a {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        max-width: 360px;
-        max-height: 360px;
-
-        &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          transition: 0.4s background-color;
-        }
-
-        &:hover {
-          &::after {
-            background-color: rgba(0, 0, 0, 0.6);
-          }
-        }
+        box-shadow: 0 0 30px 2px #EB478B;
       }
     }
   }
 }
 
 .price {
-  margin-bottom: 60px;
-  
-  @include r($sm) {
-    color: #AFAFAF;
-  }
-  
-  &__title {
-    margin-bottom: 60px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 80px 40px;
 
-    @include r($md) {
-      margin-bottom: 40px;
-    }
+  @include maxw($sm) {
+    padding: 12px;
   }
 
-  &__top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: -6px;
-    background-color: $gray;
-
-    @include r($lr) {
-      flex-wrap: wrap;
-    }
-
-    @include r($sm) {
-      background-color: transparent;
-      justify-content: flex-start;
-    }
+  @include maxw(1200px) {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  &__top-item {
+  &__img {
+    max-width: 635px;
     width: 100%;
+    min-height: 465px;
+    margin-right: 115px;
+    position: relative;
+    display: inline-block;
+    background-size: cover;
 
-    @include r($lr) {
-      width: 50%;
+    @include maxw(1200px) {
+      margin: 0 0 50px;
     }
-    
-    @include r($sm) {
-      width: auto;
-      max-width: 100%;
-      position: relative;
 
-      &:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        height: 16px;
-        width: 1px;
-        background-color: #fff;
+    @include maxw($md) {
+      max-width: 495px;
+      min-height: 365px;
+      top: 0;
+    }
+
+    @include maxw(560px) {
+      max-width: 328px;
+      min-height: 243px;
+    }
+
+    @include maxw(410px) {
+      max-width: 228px;
+      min-height: 172px;
+    }
+
+    &::before {
+      content: '';
+      background-image: url('../images/content/price/circle.png');
+      max-width: 465px;
+      width: 100%;
+      min-height: 465px;
+      border-radius: 480px;
+      position: absolute;
+      right: 100px;
+      bottom: 0;
+      z-index: -1;
+      background-size: cover;
+
+      @include maxw($md) {
+        max-width: 365px;
+        min-height: 365px;
+      }
+
+      @include maxw(560px) {
+        max-width: 265px;
+        min-height: 265px;
+        right: 50px;
+      }
+
+      @include maxw(410px) {
+        max-width: 205px;
+        min-height: 205px;
+        right: 0;
       }
     }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 55px;
+    margin-bottom: 20px;
+
+    @include maxw($sm) {
+      font-size: 36px;
+      line-height: 1;
+    }
+  }
+
+  &__email {
+    background-color: #F2F2F2;
   }
 
   &__link {
-    display: inline-block;
-    width: 100%;
-    padding: 10px 20px;
-    border: 6px solid #313131;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.2s border-color, 0.5s color;
-    outline: transparent;
-
-    &:focus {
-      border-color: rgba(204, 204, 204, 0.5);
-    }
-
-    &:hover {
-      border-color: rgba(204, 204, 204, 0.5);
-    }
-
-    @include r($sm) {
-      border: none;
-      padding: 0 20px 20px 0;
-      font-size: 20px;
-    }
-
-    &--active {
-      position: relative;
-      z-index: 2;
-      border-color: $orange;
-      border-bottom-color: $gray !important;
-      font-weight: 600;
-
-      &:focus {
-        border-color: $orange;
-      }
-
-      &:hover {
-        border-color: $orange;
-      }
-
-      @include r($lr) {
-        border-bottom-color: $orange;
-      }
-
-      @include r($sm) {
-        color: $orange;        
-      }
-    }
-  }
-
-  &__bottom {
-    margin-bottom: 40px;
-  }
-
-  &__list {
-    display: none;
-    border: 6px solid $orange;
-    padding: 25px 0;
-    position: relative;
-    z-index: 1;
-    background-color: $gray;
-    max-height: 1030px;
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      width: 3px;
-      background-color: rgba(0, 0, 0, 0);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(204, 204, 204, 0.3);
-      width: 2px;
-    }
-
-    @include r($sm) {
-      background-color: transparent;
-      border: 1px solid #3A3A3A;
-      padding: 0;
-      max-height: 500px;
-    }
-
-    &--active {
-      display: block;
-    }
-  }
-
-  &__item {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .price &__top-name {
-    padding: 15px 0;
-    font-size: 16px;
-    font-weight: 700;
+    background-color: $blue;
     color: #fff;
 
-    @include r($sm) {
-      font-weight: 400;
-    }
-
-    &--title {
-      padding-left: 65px;
-
-      @include r($md) {
-        display: flex;
-        align-items: center;
-        word-wrap: break-word;
-        padding-left: 10px;
-      }
-    }
-  }
-
-  &__text {
-    border: 1px solid #fff;
-    width: 20%;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-
-    @include r($sm) {
-      border: 1px solid #3A3A3A;
-      word-wrap: break-word;
-      font-size: 11px;
-    }
-  }
-
-  &__text--name {
-    width: 60%;
-    padding-left: 45px;
-    text-align: left;
-    border-left-color: transparent;
-
-    @include r($md) {
-      padding-left: 10px;
-    }
-  }
-
-  &__text--cost {
-    border-right-color: transparent;
-  }
-
-  &__button {
-    display: flex;
-    margin-left: auto;
-
-    @include r($sm) {
-      margin: 0 auto;
+    &:hover {
+      box-shadow: 0 0 10px 2px rgb(92, 87, 87);
     }
   }
 }
 
-.consultation {
+.question {
+
+  &__padding {
+    @include maxw($sm) {
+      padding: 0;
+    }
+  }
 
   &__title {
-    margin-bottom: 65px;
-
-    @include r($md) {
-      margin-bottom: 30px;
+    @include maxw($sm) {
+      padding-left: 12px;
     }
   }
 
-  &__background {
-    margin-bottom: 0;
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
 
-    @include r($sm) {
-      background-image: none !important;
+  &__item:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
 
-      &::after {
-        display: none;
-      }
+.feedback {
+  background-color: #fff;
+  padding: 80px 40px;
+  align-items: center;
+  display: flex;
+
+  @include maxw(1300px) {
+    justify-content: space-between;
+  }
+
+  @include maxw($sm) {
+    padding: 0;
+  }
+
+  &__content {
+    max-width: 465px;
+    margin-right: 180px;
+
+    @include maxw(1300px) {
+      margin-right: 0;
+    }
+
+    @include maxw(910px) {
+      max-width: 100%;
     }
   }
 
-  &__inner {
+  &__title {
+    margin-bottom: 15px;
+    max-width: 465px;
 
-    @include r($exlr) {
-      flex-wrap: wrap;
-      justify-content: center;
-      padding-bottom: 20px;
+    @include maxw($sm) {
+      padding-left: 5px;
+    }
+  }
+  
+  &__btn {
+    @include maxw($sm) {
+      width: 100%;
+      text-align: center;
     }
   }
 
-  &__form {
+  &__text {
+    margin-bottom: 25px;
+    max-width: 465px;
+    @include line-clamp(5);
 
-    @include r($sm) {
-      margin: 0;
+    @include maxw($sm) {
+      padding-left: 5px;
     }
   }
 
   &__img {
-    margin-top: -25px;
-    max-width: 678px;
-    height: 705px;
-    object-fit: cover;
+    background-image: url('../images/content/feedback/1.png');
+    max-width: 534px;
+    width: 100%;
+    min-height: 555px;
+    z-index: 2;
+    overflow-y: hidden;
+    margin-bottom: 0;
+    position: relative;
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
 
-    @include r($md) {
+    @include maxw(1700px) {
+      max-width: 434px;
+      min-height: 455px;
+    }
+
+    @include maxw(1050px) {
+      max-width: 304px;
+      min-height: 325px;
+    }
+
+    @include maxw(910px) {
       display: none;
+    }
+
+    &::before {
+      content: '';
+      background-image: url('../images/content/feedback/2.png');
+      max-width: 100%;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      border-radius: 0 0 50% 50%;
+      min-height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 }
 
 .footer {
-  padding: 30px 0 15px;
+  padding: 25px 40px 25px 32px;
+  color: #fff;
+  background-color: $blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 24px 24px;
 
-  svg {
-    width: 30px;
-    fill: #fff;
-    transition: 0.5s fill;
-    margin-right: 15px;
+  @include maxw($sm) {
+    font-size: 14px;
+    padding: 16px 5px;
   }
 
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    
-    @include r($sm) {
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-  }
-
-  &__right {
+  &__left {
     display: flex;
     flex-direction: column;
+  }
 
-    @include r($sm) {
-      margin-top: 20px;
+  &__logo {
+    margin-bottom: 5px;
+  }
+
+  &__desc {
+    max-width: 190px;
+
+    @include maxw($sm) {
+      max-width: 150px;
     }
   }
 
-  &__text + &__text {
-    margin-top: 20px;
-  }
-
-  &__tel {
+  &__up {
+    transition: 0.4s color;
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    transition: 0.5s color;
-
-    &:hover {
-      color: $orange;
+  
+    &:hover{
+      color: $dark;
 
       svg {
-        fill: $orange;
+        fill: $dark;
       }
     }
   }
 
-  &__mail {
-    display: flex;
-    align-items: center;
-    transition: 0.5s color;
-
-    &:hover {
-      color: $orange;
-
-      svg {
-        fill: $orange;
-      }
-    }
-  }
-
-  &__copy {
-    display: flex;
-    justify-content: center;
+  &__svg {
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+    margin-left: 8px;
+    transition: 0.4s fill;
   }
 }
